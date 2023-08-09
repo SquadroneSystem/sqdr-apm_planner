@@ -766,7 +766,7 @@ void LogAnalysis::logLoadingDone(AP2DataPlotStatus status)
     m_loadProgressDialog->setValue(100);
 
     // status handling
-    if (status.getParsingState() != AP2DataPlotStatus::OK)
+    if (status.getParsingState() != AP2DataPlotStatus::OK && false) // TODO titus : parametrize that
     {
         QString infoString;
         QMessageBox msgBox;
