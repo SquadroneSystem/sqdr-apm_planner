@@ -84,7 +84,7 @@ void QGCCore::aboutToQuit()
     LinkManager::instance()->shutdown();
 }
 
-void QGCCore::initialize()
+void QGCCore::initialize(std::vector<std::string> logfiles)
 {
     QLOG_INFO() << "QGCCore::initialize()";
     QLOG_INFO() << "Current Build Info";
@@ -193,6 +193,10 @@ void QGCCore::initialize()
 
     // Remove splash screen
     splashScreen->finish(mainWindow);
+
+    for (auto logfile : logfiles) {
+        mainWindow->showLogFile(logfile);
+    }
 
     if (upgraded) mainWindow->showInfoMessage(tr("Default Settings Loaded"),
                                               tr("APM Planner has been upgraded from version %1 to version %2. Some of your user preferences have been reset to defaults for safety reasons. Please adjust them where needed.").arg(lastApplicationVersion).arg(QGC_APPLICATION_VERSION));

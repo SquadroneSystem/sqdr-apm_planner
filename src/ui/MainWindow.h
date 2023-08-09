@@ -164,6 +164,8 @@ public:
 
     QList<QAction*> listLinkMenuActions(void);
 
+    void showLogFile(std::string logfile);
+
 public slots:
     void loadTlogMenuClicked();
     void disableTLogReplayBar();
@@ -531,6 +533,7 @@ private:
     AutoUpdateDialog* m_dialog;
 
     QDialog* m_terminalDialog;
+    QList<QWidget*> m_childGraphList;
 
 };
 

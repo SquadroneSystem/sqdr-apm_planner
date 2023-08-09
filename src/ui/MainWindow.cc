@@ -62,6 +62,8 @@ This file is part of the QGROUNDCONTROL project
 #include "TerminalConsole.h"
 #include "AP2DataPlot2D.h"
 #include "LinkManagerFactory.h"
+#include "Loghandling/LogAnalysis.h"
+
 
 #ifdef QGC_OSG_ENABLED
 #include "Q3DWidgetFactory.h"
@@ -427,6 +429,13 @@ MainWindow::~MainWindow()
             *i = NULL;
         }
     }
+
+    // delete all log windows
+    for (int i=0;i<m_childGraphList.size();i++)
+    {
+        m_childGraphList.at(i)->close();
+    }
+
     // Delete all UAS objects
     for (int i=0;i<commsWidgetList.size();i++)
     {
@@ -2488,4 +2497,15 @@ void MainWindow::closeTerminalConsole()
         m_terminalDialog->deleteLater();
         m_terminalDialog = NULL;
     }
+}
+
+void MainWindow::showLogFile(std::string logfile) {
+    LogAnalysis *pAnalyze = new LogAnalysis(nullptr);
+    pAnalyze->show();
+    pAnalyze->activateWindow();
+    pAnalyze->raise();
+    //connect(pAnalyze, SIGNAL(destroyed(QObject*)), this, SLOT(childGraphDestroyed(QObject*)));
+    pAnalyze->setAttribute(Qt::WA_DeleteOnClose, true);
+    pAnalyze->loadLog(QString::fromStdString(logfile));
+    m_childGraphList.append(pAnalyze);
 }

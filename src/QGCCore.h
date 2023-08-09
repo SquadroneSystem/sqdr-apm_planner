@@ -39,6 +39,8 @@ This file is part of the PIXHAWK project
 #include "UASManager.h"
 #include "LinkManager.h"
 #include "QGCMouseWheelEventFilter.h"
+#include <vector>
+
 /*#include "ViconTarsusProtocol.h" */
 #ifdef OPAL_RT
 
@@ -60,7 +62,7 @@ public:
     QGCCore(int &argc, char* argv[]);
     ~QGCCore();
 
-    void initialize();
+    void initialize(std::vector<std::string> logfiles);
     QGCMouseWheelEventFilter *getMouseWheelFilter() const { return m_mouseWheelFilter; }
 
 public slots:

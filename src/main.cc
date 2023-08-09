@@ -37,6 +37,7 @@ This file is part of the QGROUNDCONTROL project
 #include <fstream>
 #include <QApplication>
 #include <QMutexLocker>
+#include <vector>
 
 /* SDL does ugly things to main() */
 #ifdef main
@@ -156,6 +157,10 @@ int main(int argc, char *argv[])
     QLoggingCategory::setFilterRules(QStringLiteral("apm.general.debug=true"));
 
     // start the application
-    core.initialize();
+    std::vector<std::string> logfiles;
+    for (int i = 1; i < argc; ++i) {
+        logfiles.push_back(argv[i]);
+    }
+    core.initialize(logfiles);
     return core.exec();
 }
