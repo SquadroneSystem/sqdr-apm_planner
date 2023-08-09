@@ -19,6 +19,14 @@ https://ardupilot.org/planner2/docs/credits-and-contributors.html
 
 [![Throughput Graph](https://graphs.waffle.io/diydrones/apm_planner/throughput.svg)](https://waffle.io/diydrones/apm_planner/metrics)
 
+## This branch
+
+This fork add the possibility to open direcly several logfiles from the CLI:
+
+```bash
+apmplanner2 log1.bin log2.bin
+```
+
 Documentation
 =============
 see https://ardupilot.org/planner2/
