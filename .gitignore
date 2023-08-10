@@ -1,7 +1,6 @@
 *.swp
 *.nfs
 CMakeFiles
-*Makefile*
 tags
 build*/
 obj

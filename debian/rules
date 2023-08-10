@@ -9,7 +9,7 @@
 # 
 # Modified for use with APMPlanner 2 by Stephen Dade
 
-package = apmplanner2
+package = sqdr-apmplanner2
 docdir = debian/tmp/usr/share/doc/$(package)
 
 CC = gcc
@@ -25,22 +25,10 @@ endif
 
 build:
 	$(checkdir)
-	#GIT_VERSION=$(git describe --abbrev=1)
-	#git-dch -a --ignore-branch --new-version="2.0.0.$GIT_VERSION"
-	./debian/gitlog-to-changelog.pl > ./debian/changelog
 	qmake PREFIX=debian/tmp/usr apm_planner.pro ${APP_PLATFORM_DEFINES}
-	#cmake -DCMAKE_INSTALL_PREFIX=/usr .
-	#$(MAKE) CC="$(CC)" CFLAGS="$(CFLAGS)" --jobs=3
-	touch build
 
 clean:
-	$(checkdir)
-	rm -f build
-	#cmake -DCMAKE_INSTALL_PREFIX=/usr .
-	qmake PREFIX=/usr apm_planner.pro ${APP_PLATFORM_DEFINES}
-	[ ! -f Makefile ] || $(MAKE) clean
-	rm -r Makefile
-	rm -rf *~ debian/tmp debian/*~ debian/files* debian/substvars
+	dh clean
 
 binary-indep: checkroot build
 	$(checkdir)
@@ -55,7 +43,7 @@ binary-arch: checkroot build
 	cp debian/control debian/tmp/DEBIAN
 	install -m 755 debian/postinst debian/postrm debian/tmp/DEBIAN
 	#sed -i "s/VERSION/$GIT_VERSION/g" debian/tmp/DEBIAN/control
-	$(MAKE) install CC="$(CC)" CFLAGS="$(CFLAGS)" --jobs=3
+	$(MAKE) install CC="$(CC)" CFLAGS="$(CFLAGS)" --jobs=20
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/tmp $(INSTALL_PROGRAM)
 	cp -a ./license.txt "$(docdir)/copyright"
 	cp -a debian/changelog "$(docdir)/changelog"
@@ -78,4 +66,4 @@ checkroot:
 	$(checkdir)
 	test $$(id -u) = 0
 
-.PHONY: binary binary-arch binary-indep clean checkroot
+.PHONY: build binary binary-arch binary-indep clean checkroot
