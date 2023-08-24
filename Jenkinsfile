@@ -4,6 +4,7 @@ git_repository = "sqdr-apm_planner"
 github_credentials_id = "github_personnal_access_token"
 git_credentials_id = "ci-squadrone"
 build_dirs = ['.']
+push_to_apt_branch = "sqdr-main"
 Map nodes = [
     "amd64/ubuntu/focal": "ec2-fleet-amd64",
     //"arm64/ubuntu/focal": "ec2-fleet-arm64",
@@ -30,7 +31,11 @@ nodes.each { build_arch, label ->
                     notifyGithub.buildStatus(arch: build_arch, status: "pending")
                 }
 
-                sqdrBuild.debianPackages(build_arch: build_arch, build_dirs: build_dirs, dput_to_apt: env.BRANCH_NAME == 'sqdr-main')
+                sqdrBuild.debianPackages(build_arch: build_arch, build_dirs: build_dirs)
+
+                if (env.BRANCH_NAME == push_to_apt_branch) {
+                    sqdrDeploy.debianPackages(build_arch: build_arch)
+                }
 
                 stage("Archive debian packages") {
                     archiveArtifacts artifacts: "**/*jenkins${BUILD_NUMBER}*.deb", followSymlinks: true
