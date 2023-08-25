@@ -61,3 +61,4 @@ config.tests/has_flite/*
 !config.tests/has_flite/has_flite.pro
 !config.tests/has_flite/main.cpp
 .vscode/
+Makefile
