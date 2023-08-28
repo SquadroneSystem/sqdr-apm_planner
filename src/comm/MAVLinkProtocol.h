@@ -37,6 +37,8 @@ This file is part of the APM_PLANNER project
 #ifndef NEW_MAVLINKPARSER_H
 #define NEW_MAVLINKPARSER_H
 
+#include <mavlink_types.h>
+extern mavlink_status_t m_mavlink_status[MAVLINK_COMM_NUM_BUFFERS]; // defined in src/main.cc
 #include <mavlink.h>
 
 #include "LinkInterface.h"
@@ -55,7 +57,7 @@ class MAVLinkProtocol : public QObject
 public:
 
     explicit MAVLinkProtocol();
-    ~MAVLinkProtocol() override;
+    ~MAVLinkProtocol();
 
     void setConnectionManager(LinkManager *manager) { m_connectionManager = manager; }
     void sendMessage(mavlink_message_t msg);

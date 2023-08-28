@@ -39,6 +39,8 @@ This file is part of the QGROUNDCONTROL project
 #include <QMutexLocker>
 #include <vector>
 
+#include <mavlink_types.h>
+
 /* SDL does ugly things to main() */
 #ifdef main
 #undef main
@@ -59,6 +61,9 @@ void msgHandler( QtMsgType type, const char* msg )
     if( type == QtFatalMsg ) abort();
 }
 #endif
+
+// Global status structures for mavlink protocol
+mavlink_status_t m_mavlink_status[MAVLINK_COMM_NUM_BUFFERS];
 
 // Path for file logging
 static QString sLogPath;

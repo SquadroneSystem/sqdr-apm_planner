@@ -35,7 +35,6 @@ This file is part of the APM_PLANNER project
 
 #include "MAVLinkProtocol.h"
 #include "LinkManager.h"
-#include "mavlink_helpers.h"
 
 #include <cstring>
 #include <QDataStream>
@@ -350,7 +349,7 @@ void MAVLinkProtocol::handleMessage(LinkInterface *link, const mavlink_message_t
         }
 
         // Make some noise if a message was skipped
-        //QLOG_DEBUG() << "SYSID" << message.sysid << "COMPID" << message.compid << "MSGID" << message.msgid << "EXPECTED SEQ:" << expectedSequence << "SEQ" << message.seq;
+        //QLOG_DEBUG() << "SYSID" << message.sysid << "COMPID" << message.compid << "MSGID" << message.msgid << "EXPECTED INDEX:" << expectedIndex << "SEQ" << message.seq;
         if (message.seq != expectedSequence)
         {
             // Determine how many messages were skipped accounting for 0-wraparound
@@ -363,7 +362,7 @@ void MAVLinkProtocol::handleMessage(LinkInterface *link, const mavlink_message_t
             else
             {
                 // TODO Console generates excessive load at high loss rates, needs better GUI visualization
-                //QLOG_DEBUG() << QString("Lost %1 messages for comp %4: expected sequence ID %2 but received %3.").arg(lostMessages).arg(expectedSequence).arg(message.seq).arg(message.compid);
+                //QLOG_DEBUG() << QString("Lost %1 messages for comp %4: expected sequence ID %2 but received %3.").arg(lostMessages).arg(expectedIndex).arg(message.seq).arg(message.compid);
             }
             {   // Scope for lock
                 QMutexLocker lock(&totalCounterMutex);
