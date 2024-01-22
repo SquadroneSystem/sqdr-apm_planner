@@ -89,8 +89,7 @@ Be sure to run apt-get update first
 
 ```
 sudo apt-get update
-sudo apt-get install qt5-qmake qtbase5-dev qtscript5-dev libqt5webkit5-dev libqt5serialport5-dev libqt5svg5-dev libqt5opengl5-dev qml-module-qtquick-controls
-sudo apt-get install git libsdl1.2-dev libsndfile1-dev flite1-dev libssl-dev libudev-dev libsdl2-dev
+sudo apt-get install qt5-qmake qtbase5-dev qtscript5-dev libqt5webkit5-dev libqt5serialport5-dev libqt5svg5-dev libqt5opengl5-dev qml-module-qtquick-controls git libsdl1.2-dev libsndfile1-dev flite1-dev libssl-dev libudev-dev libsdl2-dev
 ```
 
 

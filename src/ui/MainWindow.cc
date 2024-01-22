@@ -1272,7 +1272,7 @@ void MainWindow::loadSettings()
     lowPowerMode = settings.value("LOW_POWER_MODE", false).toBool();
     autoProxyMode = settings.value("AUTO_PROXY_MODE", false).toBool();
     dockWidgetTitleBarEnabled = settings.value("DOCK_WIDGET_TITLEBARS", true).toBool();
-    isAdvancedMode = settings.value("ADVANCED_MODE", false).toBool();
+    isAdvancedMode = settings.value("ADVANCED_MODE", true).toBool();
     enableHeartbeat(settings.value("HEARTBEATS_ENABLED",true).toBool());
     settings.endGroup();
 }
