@@ -1,3 +1,11 @@
+sqdr-apmplanner2 (2.2.0-1) stable; urgency=medium
+
+  * Use squadrone mode mapping
+  * Double clicking on a .BIN file will open it with apmplanner
+  * Enable advanced mode by default
+
+ -- Titus Senez <titus.senez@squadrone-system.com>  Fri, 12 Apr 2024 10:53:13 +0200
+
 sqdr-apmplanner2 (2.1.0-1) stable; urgency=medium
 
   * Open logs from CLI
