@@ -1341,14 +1341,8 @@ QString Copter::MessageFormatter::format(const ModeMessage &message)
     case Copter::STABILIZE:
         outputStream << "Stabilize";
         break;
-    case Copter::ACRO:
-        outputStream << "Acro";
-        break;
     case Copter::ALT_HOLD:
         outputStream << "Alt Hold";
-        break;
-    case Copter::AUTO:
-        outputStream << "Auto";
         break;
     case Copter::GUIDED:
         outputStream << "Guided";
@@ -1359,50 +1353,41 @@ QString Copter::MessageFormatter::format(const ModeMessage &message)
     case Copter::RTL:
         outputStream << "RTL";
         break;
-    case Copter::CIRCLE:
-        outputStream << "Circle";
-        break;
     case Copter::LAND:
         outputStream << "Land";
-        break;
-    case Copter::DRIFT:
-        outputStream << "Drift";
-        break;
-    case Copter::SPORT:
-        outputStream << "Sport";
-        break;
-    case Copter::FLIP:
-        outputStream << "Flip";
         break;
     case Copter::AUTOTUNE:
         outputStream << "Auto Tune";
         break;
-    case Copter::POS_HOLD:
-        outputStream << "Pos Hold";
+    case Copter::KILL:
+        outputStream << "Kill";
         break;
-    case Copter::BRAKE:
-        outputStream << "Brake";
+    case Copter::LOITER_AUTO:
+        outputStream << "Loiter Auto";
         break;
-    case Copter::THROW:
-        outputStream << "Throw";
+    case Copter::ALT_HOLD_AUTO:
+        outputStream << "Alt Hold Auto";
         break;
-    case Copter::AVOID_ADSB:
-        outputStream << "Avoid-ADSB";
+    case Copter::COME_TO_ME:
+        outputStream << "Come To Me";
         break;
-    case Copter::GUIDED_NOGPS:
-        outputStream << "Guided no GPS";
+    case Copter::COMPASS_CALIB:
+        outputStream << "Compass Calib";
         break;
-    case Copter::SMART_RTL:
-        outputStream << "Smart RTL";
+    case Copter::ATTITUDE_CTRL:
+        outputStream << "Attitude Control";
         break;
-    case Copter::FLOWHOLD:
-        outputStream << "Flowhold";
+    case Copter::VELOCITY:
+        outputStream << "Velocity";
         break;
-    case Copter::FOLLOW:
-        outputStream << "Follow";
+    case Copter::ATTITUDE_CTRL_RC:
+        outputStream << "Attitude Control RC";
         break;
-    case Copter::ZIGZAG:
-        outputStream << "ZigZag";
+    case Copter::ID_ACCEL_Z:
+        outputStream << "Vertical Accel Identification";
+        break;
+    case Copter::ID_ATTITUDE:
+        outputStream << "Attitude Identification";
         break;
     default:
         outputStream << "Unknown Mode:" << message.getMode();

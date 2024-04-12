@@ -486,35 +486,35 @@ namespace Copter
  * @brief The Mode enum holds all possible flying modes
  *        of a copter
  */
-enum Mode
-{
-    STABILIZE   = 0,
-    ACRO        = 1,
-    ALT_HOLD    = 2,
-    AUTO        = 3,
-    GUIDED      = 4,
-    LOITER      = 5,
-    RTL         = 6,
-    CIRCLE      = 7,
-    RESERVED_8  = 8,
-    LAND        = 9,
-    OF_LOITER   = 10,
-    DRIFT       = 11,
-    RESERVED_12 = 12,
-    SPORT       = 13,
-    FLIP        = 14,
-    AUTOTUNE    = 15,
-    POS_HOLD    = 16,
-    BRAKE       = 17,
-    THROW       = 18,
-    AVOID_ADSB  = 19,
-    GUIDED_NOGPS= 20,
-    SMART_RTL   = 21,
-    FLOWHOLD    = 22,
-    FOLLOW      = 23,
-    ZIGZAG      = 24,
-    LAST_MODE           // This must always be the last entry
+enum Mode {
+    STABILIZE = 0,
+    ALT_HOLD = 2,
+    // AUTO           = 3, // unused, seems to be the historical GUIDED mode ?
+    GUIDED = 4,
+    LOITER = 5,
+    RTL = 6,
+    // CIRCLE = 7,  // unused
+    LAND = 9,
+    // SPORT = 13, // unused
+    AUTOTUNE = 15,
+    // HYBRID = 16,  // unused
+    // NUM_MODES = 17, // unused
+    KILL = 18,
+    LOITER_AUTO = 19,
+    ALT_HOLD_AUTO = 20,
+    COME_TO_ME = 21,
+    COMPASS_CALIB = 22,
+    // LOITER_INDOOR  = 23, // unused
+    // FOLLOW_ROVER = 24, // unused
+    // GTS = 25, // unused
+    ATTITUDE_CTRL = 26,
+    VELOCITY = 27,
+    ATTITUDE_CTRL_RC = 28,
+    ID_ACCEL_Z = 29,
+    ID_ATTITUDE = 30,
+    LAST_MODE
 };
+
 
 /**
  * @brief Helper class for creating an interpreted output of
