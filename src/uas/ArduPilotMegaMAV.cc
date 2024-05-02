@@ -1389,6 +1389,9 @@ QString Copter::MessageFormatter::format(const ModeMessage &message)
     case Copter::ID_ATTITUDE:
         outputStream << "Attitude Identification";
         break;
+    case Copter::POS_HOLD:
+        outputStream << "Position Hold";
+        break;
     default:
         outputStream << "Unknown Mode:" << message.getMode();
         break;
