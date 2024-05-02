@@ -512,6 +512,7 @@ enum Mode {
     ATTITUDE_CTRL_RC = 28,
     ID_ACCEL_Z = 29,
     ID_ATTITUDE = 30,
+    POS_HOLD = 31,
     LAST_MODE
 };
 
