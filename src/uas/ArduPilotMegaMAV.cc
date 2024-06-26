@@ -1228,71 +1228,124 @@ QString Copter::MessageFormatter::format(const ErrorMessage &message)
         break;
 
     case 18:
-        outputStream << "Baro:";
-        if (message.getErrorCode() == 2)
-        {
-            outputStream << "Glitch detected";
+        outputStream << "FS-Baro: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
             EcodeUsed = true;
         }
         break;
 
     case 19:
-        outputStream << "CPU:";
+        outputStream << "FS-OptFlow: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
         break;
 
     case 20:
-        outputStream << "FS-ADSB:";
-        if (message.getErrorCode() == 1)
-        {
-            outputStream << "Detected";
+        outputStream << "Sonar: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
             EcodeUsed = true;
         }
         break;
 
     case 21:
-        outputStream << "Terrain:";
-        if (message.getErrorCode() == 2)
-        {
-            outputStream << "Missing Terrain Data";
+        outputStream << "FS-Attitude: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
             EcodeUsed = true;
         }
         break;
 
     case 22:
-        outputStream << "Navigation:";
-        if (message.getErrorCode() == 2)
-        {
-            outputStream << "Failed to set destination";
+        outputStream << "FS-Tera: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
             EcodeUsed = true;
-        }
-        else if (message.getErrorCode() == 3)
-        {
-            outputStream << "Restarted RTL";
-            EcodeUsed = true;
-        }
-        else if (message.getErrorCode() == 4)
-        {
-            outputStream << "Failed Circle init";
-            EcodeUsed = true;
-        }
-        else if (message.getErrorCode() == 5)
-        {
-            outputStream << "Destination outside fence";
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
             EcodeUsed = true;
         }
         break;
 
     case 23:
-        outputStream << "FS-Terrain:";
-        if (message.getErrorCode() == 1)
-        {
-            outputStream << "Detected";
+        outputStream << "FS-ObstAvoidance: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
             EcodeUsed = true;
         }
         break;
 
     case 24:
-        outputStream << "EKF primary:";
+        outputStream << "FS-UWB: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+
+    case 25:
+        outputStream << "FS-Ceiling: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+
+    case 26:
+        outputStream << "FS-EKF: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+
+    case 27:
+        outputStream << "FS-ExtLoc: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+
+    case 28:
+        outputStream << "FS-GPIO: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
         break;
 
     default:
