@@ -1427,6 +1427,9 @@ QString Copter::MessageFormatter::format(const ModeMessage &message)
     case Copter::COMPASS_CALIB:
         outputStream << "Compass Calib";
         break;
+    case Copter::LOITER_INDOOR:
+        outputStream << "Loiter Indoor";
+        break;
     case Copter::ATTITUDE_CTRL:
         outputStream << "Attitude Control";
         break;

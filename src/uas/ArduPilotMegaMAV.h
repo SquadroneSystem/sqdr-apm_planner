@@ -504,7 +504,7 @@ enum Mode {
     ALT_HOLD_AUTO = 20,
     COME_TO_ME = 21,
     COMPASS_CALIB = 22,
-    // LOITER_INDOOR  = 23, // unused
+    LOITER_INDOOR  = 23,
     // FOLLOW_ROVER = 24, // unused
     // GTS = 25, // unused
     ATTITUDE_CTRL = 26,
