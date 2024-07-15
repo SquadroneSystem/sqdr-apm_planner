@@ -2,7 +2,7 @@
 Type=Application
 Name=APM Planner 2
 GenericName=apmplanner2
-Exec=/usr/bin/apmplanner2 %F
+Exec=/usr/bin/apmplanner2 -platform xcb %F
 MimeType=application/octet-stream;
 Terminal=false
 Categories=Education;Robotics;
