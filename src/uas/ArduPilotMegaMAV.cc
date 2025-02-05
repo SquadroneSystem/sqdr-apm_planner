@@ -1348,6 +1348,28 @@ QString Copter::MessageFormatter::format(const ErrorMessage &message)
         }
         break;
 
+    case 29:
+        outputStream << "FS-AttCtrl: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+    
+    case 30:
+        outputStream << "FS-Compass: ";
+        if (message.getErrorCode() == 1) {
+            outputStream << "raised";
+            EcodeUsed = true;
+        } else if (message.getErrorCode() == 0) {
+            outputStream << "resolved";
+            EcodeUsed = true;
+        }
+        break;
+
     default:
         outputStream << "SubSys:" << message.getSubsystemCode() << " ECode:" << message.getErrorCode();
         EcodeUsed = true;
